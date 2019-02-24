@@ -4,27 +4,29 @@ from tensorflow.python.ops import variable_scope
 from tensorflow.python.framework import dtypes
 import copy
 
-## Parameters
-learning_rate = 0.01
-lambda_l2_reg = 0.003  
+# ## Parameters
+# learning_rate = 0.01
+# lambda_l2_reg = 0.003  
 
-## Network Parameters
-# length of input signals
-input_seq_len = 15 
-# length of output signals
-output_seq_len = 20 
-# size of LSTM Cell
-hidden_dim = 64 
-# num of input signals
-input_dim = 1
-# num of output signals
-output_dim = 1
-# num of stacked lstm layers 
-num_stacked_layers = 2 
-# gradient clipping - to avoid gradient exploding
-GRADIENT_CLIPPING = 2.5 
+# ## Network Parameters
+# # length of input signals
+# input_seq_len = 15 
+# # length of output signals
+# output_seq_len = 20 
+# # size of LSTM Cell
+# hidden_dim = 64 
+# # num of input signals
+# input_dim = 1
+# # num of output signals
+# output_dim = 1
+# # num of stacked lstm layers 
+# num_stacked_layers = 2 
+# # gradient clipping - to avoid gradient exploding
+# GRADIENT_CLIPPING = 2.5 
 
-def build_graph(feed_previous = False):
+def build_graph(feed_previous = False, input_seq_len = 15, output_seq_len = 20,  hidden_dim = 64,
+                input_dim = 1, output_dim = 1, num_stacked_layers = 2, GRADIENT_CLIPPING = 2.5 ,
+                learning_rate = 0.01, lambda_l2_reg=0.01):
     
     tf.reset_default_graph()
     
